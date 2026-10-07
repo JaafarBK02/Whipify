@@ -1,11 +1,27 @@
 """Logs each diagnosis (session, user message, detected cues, result) to Supabase.
 
-Every function is a no-op when Supabase isn't configured, so logging never blocks a diagnosis.
+Logging is best-effort: it's skipped when Supabase isn't configured, paused or unreachable,
+so it never blocks a diagnosis.
 """
+import functools
 from typing import Any, Dict, List, Optional
 
 from app.supabase_client import supabase
 
+
+def _best_effort(fn):
+    """Logging must never break a diagnosis: if Supabase is paused or unreachable, skip it."""
+    @functools.wraps(fn)
+    def wrapper(*args, **kwargs):
+        try:
+            return fn(*args, **kwargs)
+        except Exception as e:
+            print(f"Supabase logging skipped ({fn.__name__}): {e!r}")
+            return None
+    return wrapper
+
+
+@_best_effort
 def create_session(vehicle: Optional[Dict[str, Any]] = None) -> Optional[str]:
     if supabase is None:
         return None
@@ -20,6 +36,7 @@ def create_session(vehicle: Optional[Dict[str, Any]] = None) -> Optional[str]:
     return row["id"]
 
 
+@_best_effort
 def insert_message(session_id: Optional[str], text: str, role: str = "user") -> Optional[str]:
     if supabase is None:
         return None
@@ -28,6 +45,7 @@ def insert_message(session_id: Optional[str], text: str, role: str = "user") -> 
     ).execute().data[0]
     return row["id"]
 
+@_best_effort
 def insert_detections(message_id: Optional[str], detections: List[Dict[str, Any]]) -> None:
     if supabase is None or not detections:
         return
@@ -42,6 +60,7 @@ def insert_detections(message_id: Optional[str], detections: List[Dict[str, Any]
     ]
     supabase.table("detections").insert(rows).execute()
 
+@_best_effort
 def insert_diagnosis(session_id: Optional[str], message_id: Optional[str], diag: Dict[str, Any]) -> Optional[str]:
     if supabase is None:
         return None
