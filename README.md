@@ -2,6 +2,12 @@
 
 **AI car diagnostics for everyday drivers.** Describe what your car is doing in plain English and Whipify tells you the most likely issue, how risky it is to keep driving, and a typical price range for the parts, or asks two targeted follow-up questions when the description isn't enough to be confident.
 
+<p align="center">
+  <img src="docs/diagnose-form.png" alt="Whipify diagnosis form: pick the make and model, enter year and mileage, describe the issue, then click Diagnose Issue" width="640">
+</p>
+
+Pick your car's make and model, add the year and mileage, describe what's happening in a few sentences (when it happens, any warning lights, smells, leaks or noises), and click **Diagnose Issue**.
+
 <!-- TODO: add demo GIF here, e.g. ![Whipify demo](docs/demo.gif) -->
 
 ## How it works
