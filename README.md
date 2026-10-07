@@ -8,6 +8,8 @@
 
 Pick your car's make and model, add the year and mileage, describe what's happening in a few sentences (when it happens, any warning lights, smells, leaks or noises), and click **Diagnose Issue**.
 
+**Try it online:** [whipify.it.com](https://whipify.it.com). Sign up on the landing page to get 3 free diagnoses. The hosted beta runs on free tiers, so the first request can take up to a minute while the server wakes up. If the site doesn't load, the hosted version is no longer available, but you can still [run it locally](#run-it-locally) in a few minutes.
+
 <!-- TODO: add demo GIF here, e.g. ![Whipify demo](docs/demo.gif) -->
 
 ## How it works
@@ -127,7 +129,7 @@ frontend/
 
 ## Deployment history
 
-Whipify ran as a hosted beta with the frontend on Vercel, the API on Render and logging in Supabase, alongside a separate marketing landing page. The hosted version has since been retired; the instructions above run the full app locally.
+Whipify ran as a hosted beta with the frontend on Vercel, the API on Render and logging in Supabase, alongside a separate marketing landing page at [whipify.it.com](https://whipify.it.com). The hosted version may be taken down at any time; the instructions above run the full app locally.
 
 ## Limitations and next steps
 
