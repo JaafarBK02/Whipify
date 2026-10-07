@@ -8,7 +8,7 @@
 
 Pick your car's make and model, add the year and mileage, describe what's happening in a few sentences (when it happens, any warning lights, smells, leaks or noises), and click **Diagnose Issue**.
 
-**Try it online:** [whipify.it.com](https://whipify.it.com). Sign up on the landing page to get 3 free diagnoses. The hosted beta runs on free tiers, so the first request can take up to a minute while the server wakes up. If the site doesn't load, the hosted version is no longer available, but you can still [run it locally](#run-it-locally) in a few minutes.
+**Try it online:** [whipify.it.com](https://whipify.it.com). Sign up on the landing page to get 3 free diagnoses. The hosted beta runs on free tiers, so if no one has used it recently, your first sign-up can take a minute or two while the server wakes up, so give it a moment. If sign-up or diagnosis still doesn't work, the hosted version is no longer available, but you can [run it locally](#run-it-locally) in a few minutes.
 
 <!-- TODO: add demo GIF here, e.g. ![Whipify demo](docs/demo.gif) -->
 
